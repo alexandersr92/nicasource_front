@@ -1,0 +1,23 @@
+.blogs{
+    margin: 60px 0px;
+    h2{
+        text-align: center;
+        margin-bottom:60px
+    }
+    &__list{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    &__nav{
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+        a{
+            margin: 20px;
+            i{
+                color: $gray;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.podcast{
+    margin-bottom:20px;
+
+    &__info{
+        h2{
+            font-size: 24px;
+        }
+        p{
+            color: $gray;
+        }
+        &--player{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            audio{
+                display: none;
+                height:50px;
+                margin-left:10px;
+            }
+        }
+    }
+    &__meta{
+        border-left:  solid 1px $gray;
+    }
+
+}

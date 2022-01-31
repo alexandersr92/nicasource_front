@@ -1,0 +1,19 @@
+.podcasts{
+    padding: 70px!important;
+    background-color:white;
+    margin-top: -50px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 50px rgba($gray, 0.2);
+    &__title{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        margin-bottom: 60px;
+    }
+    &__footer{
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+        margin-top: 40px;
+    }
+}

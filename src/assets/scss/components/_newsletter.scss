@@ -1,0 +1,29 @@
+.newsletter{
+    text-align: center;
+    margin: 70px;
+    p{
+        color: $gray;
+    }
+    &__form{
+        
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+        input[type="email"]{
+            border: none;
+            background-color: #F5F5F5;
+            color: $gray;
+            height:60px;
+            outline: none;
+            width: 400px;
+            padding:20px
+        }
+
+        a{
+            background-color:$red;
+            padding: 18px 40px;
+            color: white!important;
+        }
+    }
+}

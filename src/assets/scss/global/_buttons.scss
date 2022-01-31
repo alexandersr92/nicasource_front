@@ -1,0 +1,37 @@
+.btns{
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    box-sizing: border-box;
+    
+}
+
+
+.btn-solid-red{
+    background-color:$red;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover{
+        transition: all 0.3s;
+        box-shadow:0px 0px 0px 2px $red inset;
+        color:$red!important;
+        background-color: white;
+    }
+}
+
+.btn-outline-red{
+    box-shadow:0px 0px 0px 2px $red inset;
+    color:$red;
+    background-color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+    &:hover{
+        background-color:$red;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+    }
+}

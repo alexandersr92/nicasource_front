@@ -1,10 +1,10 @@
 <template>
   <div class="container podcast">
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-2 col-sm-12">
         <img class="img-fluid" :src="cover" :alt="title" />
       </div>
-      <div class="col-md-7 podcast__info">
+      <div class="col-md-7 col-sm-12 podcast__info">
         <h2>{{ title }}</h2>
         <p>{{ description }}</p>
         <div class="podcast__info--player">
@@ -16,7 +16,7 @@
           </audio>
         </div>
       </div>
-      <div class="col-md-3 podcast__meta">
+      <div class="col-md-3 col-sm-12 podcast__meta">
         <p>{{ season }}</p>
         <p># Posted on {{ postedDate }}</p>
         <p>

@@ -92,7 +92,10 @@ header{
         display: none;
     }
     .mobile__menu{
-        
+        background: white;
+        z-index: 99;
+        position: absolute;
+        width: 100%;
         .header__menu{
    
             display: flex;

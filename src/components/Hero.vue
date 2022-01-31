@@ -1,65 +1,56 @@
 <template>
   <section class="hero_container">
     <div class="container hero">
-      <div class="hero__text">
-        <span class="left">{{ sub_title }} </span>
-        <h1>{{ title }}</h1>
-        <p>{{ paragraph }}</p>
-        <span class="right">Listen On Also</span>
-        <Platform :spotify="spotify" :google="google" :apple="apple" />
-      </div>
-      <div class="hero__image">
-        <img :src="hero_image" />
+      <div class="row">
+        <div class="col-md-6 col-xs-12 hero__text">
+          <span class="left">{{ hero.sub_title }} </span>
+          <h1>{{ hero.main_title }}</h1>
+          <p>{{ hero.parragraph }}</p>
+          <span class="right">Listen On Also</span>
+          <Platform
+            :spotify="hero.spotify"
+            :google="hero.google_podcasts"
+            :apple="hero.apple_podcasts"
+          />
+        </div>
+        <div class="col-md-6 col-xs-12 hero__image">
+          <img class="img-fluid" :src="hero.imagen" />
+        </div>
       </div>
     </div>
   </section>
 </template>
 
+
 <script>
-import hero_image from "@/assets/img/hero.png";
+
 import Platform from "@/components/Platform";
+import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   name: "Hero",
-  components: { 
+  data(){
+    return{
+      isLoading: true,
+    }
+  },
+  components: {
     Platform,
   },
-  props: {
-    title: {
-      type: String,
-      default: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
-    },
-    sub_title: {
-      type: String,
-      default: "Aliquam tincidunt mauris eu risus.",
-    },
-    paragraph: {
-      type: String,
-      default:
-        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
-    },
-    spotify: {
-      type: String,
-      default: "#",
-    },
-    google: {
-      type: String,
-      default: "#",
-    },
-    apple: {
-      type: String,
-      default: "#",
-    },
-    image: {
-      type: String,
-      default: "",
-    },
-  },
 
-  data() {
-    return {
-      hero_image,
-    };
+  methods: {
+    ...mapActions(["GET_HERO"]),
   },
+  computed: {
+    ...mapGetters(["hero"]),
+
+   
+  },
+  created() {
+    this.GET_HERO(11);
+  },
+  
+  
 };
 </script>

@@ -4,18 +4,19 @@
       <h3>Latest Podcast Episode</h3>
       <a href="#" class="btns btn-solid-red">View All</a>
     </div>
+
     <div class="podcasts__list">
       <Podcast
-        v-for="podcast in this.newPodcastList"
-        :key="podcast.id"
-        :id="podcast.id"
-        :title="podcast.title"
-        :cover="podcast.cover"
-        :description="podcast.description"
-        :season="podcast.season"
-        :postedDate="podcast.postedDate"
-        :audio="podcast.audio"
-        :tags="podcast.tags"
+        v-for="item in newPodcastList"
+        :key="item.id"
+        :id="item.id"
+        :title="item.title.rendered"
+        :cover="item.cover"
+        :description="item.content"
+        :season="item.season"
+        :postedDate="item.date"
+        :audio="item.acf.audio"
+        :tags="item.tags"
       />
     </div>
     <div class="podcasts__footer">
@@ -27,32 +28,34 @@
 </template>
 
 <script>
-import Podcast from "@/components/Podcast";
+import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
+
+import Podcast from "@/components/Podcast.vue";
 
 export default {
   name: "Podcasts",
   components: { Podcast },
-  data(){
-    return{
-        newPodcastList: [],
-    }
-  },
-  props: {
-    podcastsList: {
-      type: Array,
-      default: () => [],
-    },
+  data() {
+    return {
+      newPodcastList: [],
+    };
   },
 
   methods: {
+    ...mapActions(["GET_PODCASTS"]),
+
     loadMore() {
-      this.newPodcastList = this.podcastsList;
+      this.newPodcastList = this.podcasts;
     },
   },
+
+  computed: {
+    ...mapGetters(["podcasts"]),
+  },
   created() {
-
-      this.newPodcastList = this.podcastsList.slice(0, 3);
-
+    this.GET_PODCASTS();
+    this.newPodcastList = this.podcasts.slice(0, 3);
   },
 };
 </script>

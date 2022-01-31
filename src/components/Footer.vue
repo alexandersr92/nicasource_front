@@ -2,7 +2,7 @@
   <footer>
     <div class="container footer">
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-md-4 col-sm-6 mt-sm-5">
           <img :src="logoDefault" />
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
@@ -15,7 +15,7 @@
             <a href=""><i class="fa fa-skype"></i></a>
           </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-md-2 col-sm-6 mt-sm-5">
           <p>Pages</p>
           <ul>
             <li>About</li>
@@ -24,7 +24,7 @@
             <li>Contact</li>
           </ul>
         </div>
-        <div class="col-sm-2">
+        <div class="col-md-2 col-sm-6 mt-sm-5">
           <p>Recent Episode</p>
           <ul>
             <li>Episode 1</li>
@@ -33,13 +33,13 @@
             <li>Episode 4</li>
           </ul>
         </div>
-        <div class="col-sm-3">
+        <div class="col-md-3 col-sm-6 mt-sm-5">
             <p>Listen My Podcast Also in</p>
             <Platform />
         </div>
       </div>
     </div>
-    <div class="container copyright">
+    <div class="container copyright mt-sm-5">
         <p>@ 2022 NicaSource. All Rights Reserved</p>
     </div>
   </footer>

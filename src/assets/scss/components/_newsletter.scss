@@ -27,3 +27,33 @@
         }
     }
 }
+
+@media screen and (max-width: 900px) {
+    .newsletter{
+      
+        &__form{
+            
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+            input[type="email"]{
+                border: none;
+                background-color: #F5F5F5;
+                color: $gray;
+                height:60px;
+                outline: none;
+                width: 400px;
+                padding:20px
+            }
+    
+            a{
+                display: block;
+                background-color:$red;
+                padding: 18px 40px;
+                width: 400px;
+                color: white!important;
+            }
+        }
+    }
+}

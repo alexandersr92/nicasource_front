@@ -1,26 +1,20 @@
-.podcast{
-    margin-bottom:20px;
-
-    &__info{
-        h2{
-            font-size: 24px;
-        }
-        p{
-            color: $gray;
-        }
-        &--player{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            audio{
-                display: none;
-                height:50px;
-                margin-left:10px;
-            }
-        }
+.podcasts{
+    padding: 70px!important;
+    background-color:white;
+    margin-top: -50px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 50px rgba($gray, 0.2);
+    &__title{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        margin-bottom: 60px;
     }
-    &__meta{
-        border-left:  solid 1px $gray;
+    &__footer{
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+        margin-top: 40px;
     }
-
 }
+

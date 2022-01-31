@@ -36,3 +36,13 @@
         }
     }
 }
+
+@media screen and (max-width: 900px) {
+    .blog{
+        max-width: 100% !important;
+        box-sizing: border-box;
+        box-shadow: 0px 10px  20px rgba($gray, 0.2);
+        padding: 0px!important;;
+    
+    }
+}

@@ -1,52 +1,50 @@
 <template>
   <section class="container gallery">
     <h2>Our Gallery</h2>
-    <div v-on:click="showSingleGallery" class="gallery__list">
-      <img :src="gallery" />
-      <img :src="gallery" />
-      <img :src="gallery" />
-      <img :src="gallery" />
-      <img :src="gallery" />
-      <img :src="gallery" />
-      <img :src="gallery" />
-      <img :src="gallery" />
-    </div>
+    <div
+      v-on:click="showSingleGallery"
+      v-html="hero.gallery"
+      class="gallery__list"
+    ></div>
     <div v-if="!imgSingle == ''" class="gallery__single" id="singleGallery">
       <img :src="imgSingle" />
       <a v-on:click="clouseSingleGallery" class="btn btn-sm btn-secondary mt-3"
-        >Clouse</a
-      >
+        ><i class="fa fa-times"></i
+      ></a>
     </div>
   </section>
 </template>
 
 <script>
-import gallery from "@/assets/img/gallery.jpg";
-import gallery_2 from "@/assets/img/gallery-2.jpg";
-
+import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
 export default {
   name: "Gallery",
   data() {
     return {
-      gallery,
-      gallery_2,
       imgSingle: "",
+      htmlGallery: "",
     };
   },
   methods: {
-    showSingleGallery: function () {
-    
+    ...mapActions(["GET_HERO"]),
 
+    showSingleGallery: function () {
       window.addEventListener(
         "click",
         (e) => (this.imgSingle = e.target.currentSrc)
       );
-
     },
     clouseSingleGallery: function () {
-        this.imgSingle= ""
-      
+      this.imgSingle = "";
     },
+  },
+
+  computed: {
+    ...mapGetters(["hero"]),
+  },
+  created() {
+    this.GET_HERO(11);
   },
 };
 </script>

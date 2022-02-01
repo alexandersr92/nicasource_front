@@ -2,7 +2,7 @@
   <section class="hero_container">
     <div class="container hero">
       <div class="row">
-        <div class="col-md-6 col-xs-12 hero__text">
+        <div class="col-md-6 col-xs-12 hero__text slide-in-left">
           <span class="left">{{ hero.sub_title }} </span>
           <h1>{{ hero.main_title }}</h1>
           <p>{{ hero.parragraph }}</p>
@@ -13,7 +13,7 @@
             :apple="hero.apple_podcasts"
           />
         </div>
-        <div class="col-md-6 col-xs-12 hero__image">
+        <div class="col-md-6 col-xs-12 hero__image slide-in-right">
           <img class="img-fluid" :src="hero.imagen" />
         </div>
       </div>

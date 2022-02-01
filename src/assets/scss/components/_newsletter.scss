@@ -20,11 +20,21 @@
             padding:20px
         }
 
-        a{
+        button{
             background-color:$red;
             padding: 18px 40px;
             color: white!important;
+            outline: none;
+            border: none;
         }
+    }
+    p.newsletter__error{
+        color: $red;
+        font-weight: 700;
+    }
+    p.newsletter__success{
+        color: $dark-blue;
+        font-weight: 700;
     }
 }
 
@@ -47,7 +57,7 @@
                 padding:20px
             }
     
-            a{
+            button{
                 display: block;
                 background-color:$red;
                 padding: 18px 40px;

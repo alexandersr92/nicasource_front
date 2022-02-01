@@ -5,9 +5,23 @@
       <a href="#" class="btns btn-solid-red">View All</a>
     </div>
 
-    <div class="podcasts__list">
+    <div v-if="this.allPodcasts.length == 0" class="podcasts__list">
       <Podcast
-        v-for="item in newPodcastList"
+        v-for="item in this.newPodcast"
+        :key="item.id"
+        :id="item.id"
+        :title="item.title.rendered"
+        :cover="item._embedded"
+        :description="item.content.rendered"
+        :season="item._embedded['wp:term'][1]"
+        :postedDate="item.date"
+        :audio="item.acf.audio"
+        :tags="item._embedded['wp:term'][0]"
+      />
+    </div>
+    <div v-if="this.allPodcasts.length != 0" class="podcasts__list">
+      <Podcast
+        v-for="item in this.allPodcasts"
         :key="item.id"
         :id="item.id"
         :title="item.title.rendered"
@@ -38,7 +52,7 @@ export default {
   components: { Podcast },
   data() {
     return {
-      newPodcastList: [],
+      allPodcasts: [],
     };
   },
 
@@ -46,18 +60,19 @@ export default {
     ...mapActions(["GET_PODCASTS"]),
 
     loadMore() {
-      this.newPodcastList = this.podcasts;
+      this.allPodcasts = this.podcasts;
     },
   },
 
   computed: {
     ...mapGetters(["podcasts"]),
+
+    newPodcast() {
+      return this.podcasts.slice(0, 3);
+    },
   },
   created() {
     this.GET_PODCASTS();
-    setTimeout(() => {
-      this.newPodcastList = this.podcasts.slice(0, 3);
-    }, 500);
   },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="container footer">
+    <div class="container footer slide-in-bottom">
       <div class="row">
         <div class="col-md-4 col-sm-6 mt-sm-5">
           <img :src="setting.logo" :alt="setting.title" />
@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-    <div class="container copyright mt-sm-5">
+    <div class="container copyright mt-sm-5 slide-in-bottom">
       <p>@ 2022 NicaSource. All Rights Reserved</p>
     </div>
   </footer>

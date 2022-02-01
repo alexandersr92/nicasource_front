@@ -4,10 +4,7 @@
     <div class="blogs__list row">
       <Blog v-for="item in blogsList" :key="item.id" :post="item" />
     </div>
-    <div class="blogs__nav">
-      <a><i class="fa fa-arrow-left"></i></a>
-      <a><i class="fa fa-arrow-right"></i></a>
-    </div>
+    
   </section>
 </template>
 

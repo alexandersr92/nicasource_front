@@ -4,7 +4,7 @@
     <div
       v-on:click="showSingleGallery"
       v-html="hero.gallery"
-      class="gallery__list"
+      class="gallery__list slide-in-bottom "
     ></div>
     <div v-if="!imgSingle == ''" class="gallery__single" id="singleGallery">
       <img :src="imgSingle" />

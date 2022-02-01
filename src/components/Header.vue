@@ -1,9 +1,9 @@
 <template>
   <header>
     <div class="container header">
-      <img class="header__logo" :src="settings?.logo" :alt="settings?.title" />
+      <img class="header__logo slide-in-left" :src="settings?.logo" :alt="settings?.title" />
 
-      <ul class="header__menu desktop">
+      <ul class="header__menu desktop slide-in-bottom">
         <li
           v-for="item in mainMenu"
           v-show="item.classes[0].includes('header__menu--item')"
@@ -16,7 +16,7 @@
           >
         </li>
       </ul>
-      <ul class="header__rightMenu desktop">
+      <ul class="header__rightMenu desktop slide-in-right">
         <li
           v-for="item in mainMenu"
           v-show="!item.classes[0].includes('header__menu--item')"

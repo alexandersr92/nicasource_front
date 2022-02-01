@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-4 col-sm-12 mt-3 blog">
+  <div class="col-md-4 col-sm-12 mt-3 blog slide-in-bottom ">
     <div class="blog__meta">
       <p>
         <span>By {{ authorPost }}</span> {{ blogPosted }}

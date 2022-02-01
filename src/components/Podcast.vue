@@ -1,5 +1,5 @@
 <template>
-  <div class="container podcast">
+  <div class="container podcast slide-in-bottom">
     <div class="row">
       <div class="col-md-2 col-sm-12 podcast__cover">
         <img

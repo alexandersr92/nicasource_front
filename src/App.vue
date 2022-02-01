@@ -42,8 +42,11 @@ export default {
   created() {
     this.GET_SETTING();
     this.GET_MENU();
+
+    document.title = this.setting.title
+    document.description = this.setting.description
     
   },
- 
+  
 };
 </script>

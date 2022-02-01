@@ -1,5 +1,6 @@
 const form_id = 35;
-const url = `http://api.nicasource-podcast.online/wp-json/contact-form-7/v1/contact-forms/${form_id}/feedback`;
+const DOMAIN = "http://api.nicasource-podcast.online/";
+ const url = `${ DOMAIN}wp-json/contact-form-7/v1/contact-forms/${form_id}/feedback`;
 
 const sendEmail = (email) =>
   new Promise((resolve, reject) => {

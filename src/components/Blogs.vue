@@ -2,22 +2,42 @@
   <section class="container blogs">
     <h2>Blog Post</h2>
     <div class="blogs__list row">
-      <Blog />
-      <Blog />
-      <Blog />
- 
+      <Blog v-for="item in blogsList" :key="item.id" :post="item" />
     </div>
     <div class="blogs__nav">
-        <a><i class="fa fa-arrow-left"></i></a>
-        <a><i class="fa fa-arrow-right"></i></a>
+      <a><i class="fa fa-arrow-left"></i></a>
+      <a><i class="fa fa-arrow-right"></i></a>
     </div>
   </section>
 </template>
 
 <script>
 import Blog from "@/components/Blog";
+import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
+
 export default {
   name: "Blogs",
   components: { Blog },
+  data() {
+    return {
+      blogsList: [],
+    };
+  },
+
+  methods: {
+    ...mapActions(["GET_BLOGS"]),
+
+  },
+
+  computed: {
+    ...mapGetters(["blogs"]),
+  },
+  created() {
+    this.GET_BLOGS();
+    setTimeout(() => {
+      this.blogsList = this.blogs.slice(0, 3);
+    }, 500);
+  },
 };
 </script>

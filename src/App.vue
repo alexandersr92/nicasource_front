@@ -1,7 +1,7 @@
 <template>
-  <Header :mainMenu="mainMenu" logo="" />
+  <Header :mainMenu="this.menu" :settings="setting" />
   <Hero />
-  <Podcasts :podcastsList="podcastsValueTest" />
+  <Podcasts />
   <Blogs />
   <Gallery />
   <NewsLetter />
@@ -17,11 +17,9 @@ import Gallery from "@/components/Gallery.vue";
 import NewsLetter from "@/components/NewsLetter.vue";
 import Footer from "@/components/Footer.vue";
 
+import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
 
-
-
-import coverImage from "@/assets/img/cover.jpg";
-import testAudio from "@/assets/audio/test.mp3";
 export default {
   name: "App",
   components: {
@@ -31,88 +29,21 @@ export default {
     Blogs,
     Gallery,
     NewsLetter,
-    Footer
+    Footer,
   },
-  data() {
-    return {
-      mainMenu: [
-        { title: "Home", url: "#", class: "header__menu--item active" },
-        { title: "About", url: "#", class: "header__menu--item" },
-        { title: "Episodes", url: "#", class: "header__menu--item" },
-        { title: "Blog", url: "#", class: "header__menu--item" },
-        { title: "Contact", url: "#", class: "header__menu--item" },
-        { title: "Subscribe", url: "#", class: "btns btn-solid-red" },
-        { title: "Sing-in", url: "#", class: "btns btn-outline-red" },
-      ],
-      podcastsValueTest: [
-        {
-          id: 1,
-          title: "Title Podcast 1",
-          cover: coverImage,
-          description:
-            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-          season: "Season 1",
-          postedDate: "2022-01-15",
-          audio: testAudio,
-          tags: ["audio", "life"],
-        },
-        {
-          id: 2,
-          title: "Title Podcast 2",
-          cover: coverImage,
-          description:
-            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-          season: "Season 1",
-          postedDate: "2022-01-15",
-          audio: testAudio,
-          tags: ["audio", "life"],
-        },
-        {
-          id: 3,
-          title: "Title Podcast 3",
-          cover: coverImage,
-          description:
-            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-          season: "Season 1",
-          postedDate: "2022-01-15",
-          audio: testAudio,
-          tags: ["audio", "life"],
-        },
-        {
-          id: 4,
-          title: "Title Podcast 4",
-          cover: coverImage,
-          description:
-            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-          season: "Season 1",
-          postedDate: "2022-01-15",
-          audio: testAudio,
-          tags: ["audio", "life"],
-        },
-        {
-          id: 5,
-          title: "Title Podcast 5",
-          cover: coverImage,
-          description:
-            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-          season: "Season 1",
-          postedDate: "2022-01-15",
-          audio: testAudio,
-          tags: ["audio", "life"],
-        },
-        {
-          id: 6,
-          title: "Title Podcast 6",
-          cover: coverImage,
-          description:
-            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-          season: "Season 1",
-          postedDate: "2022-01-15",
-          audio: testAudio,
-          tags: ["audio", "life"],
-        },
-      ],
-    };
+
+  methods: {
+    ...mapActions(["GET_MENU"]),
+    ...mapActions(["GET_SETTING"]),
   },
+  computed: {
+    ...mapGetters(["menu", "setting"]),
+  },
+  created() {
+    this.GET_SETTING();
+    this.GET_MENU();
+    
+  },
+ 
 };
 </script>

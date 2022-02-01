@@ -11,12 +11,12 @@
         :key="item.id"
         :id="item.id"
         :title="item.title.rendered"
-        :cover="item.cover"
-        :description="item.content"
-        :season="item.season"
+        :cover="item._embedded"
+        :description="item.content.rendered"
+        :season="item._embedded['wp:term'][1]"
         :postedDate="item.date"
         :audio="item.acf.audio"
-        :tags="item.tags"
+        :tags="item._embedded['wp:term'][0]"
       />
     </div>
     <div class="podcasts__footer">
@@ -55,7 +55,9 @@ export default {
   },
   created() {
     this.GET_PODCASTS();
-    this.newPodcastList = this.podcasts.slice(0, 3);
+    setTimeout(() => {
+      this.newPodcastList = this.podcasts.slice(0, 3);
+    }, 500);
   },
 };
 </script>

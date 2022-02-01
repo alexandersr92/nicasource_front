@@ -28,8 +28,8 @@ Below is an example of how you can instruct your audience on installing and sett
     const url = `${const DOMAIN}wp-json/contact-form-7/v1/contact-forms/${form_id}/feedback`;
    ```
 6. Compiles and minifies for production
-   ```sh
-  npm run build
+    ```sh
+   npm run build
    ```
   ### Public Example
   
